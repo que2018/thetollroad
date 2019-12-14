@@ -1,5 +1,6 @@
-chrome.browserAction.onClicked.addListener(function(tab) {
-    if (jQuery) {  
+
+
+if (jQuery) {  
 		jQuery(document).ready(function(){
 			
 			console.log("jquery is loaded ... ");
@@ -11,5 +12,3 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 	} else {
 		console.log("jquery is not loaded ... ");
 	}
-
-});
