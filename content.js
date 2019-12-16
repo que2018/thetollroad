@@ -1,14 +1,8 @@
 
-
-if (jQuery) {  
-		jQuery(document).ready(function(){
-			
-			console.log("jquery is loaded ... ");
-
-			jQuery("div").each(function() {
-				alert("dd");
-			});
+jQuery(document).ready(function(){
+	jQuery("table tr").each(function() {
+		jQuery(this).find('td').each (function() {
+			console.log(jQuery(this).text());
 		});
-	} else {
-		console.log("jquery is not loaded ... ");
-	}
+	});
+});
