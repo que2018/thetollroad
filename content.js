@@ -2,12 +2,12 @@
 jQuery(document).ready(function() {
 	var total = 0;
 	
+	var LPS = ["8GGC577", "58558T2"];
+
 	jQuery("table tr td:nth-child(3)").each(function() {
 		var LP = jQuery(this).text().trim();
 
-		
-
-		if(LP != "8GGC577") {
+		if(!LPS.includes(LP)) {
 			//jQuery(this).css("background-color", "yellow");
 		
 			jQuery(this).closest('tr').remove();
