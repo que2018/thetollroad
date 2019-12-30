@@ -2,7 +2,23 @@
 jQuery(document).ready(function() {
 	var total = 0;
 	
-	var LPS = ["8GGC577", "58558T2"];
+	var LPS = [
+		"AF53X61", 
+		"AF55D41",
+		"AF54V47", 
+		"AF56B77", 
+		"AF71Y88", 
+		"AF72A22", 
+		"AF72M94", 
+		
+		"58433T2", 
+		"58558T2", 
+		"58544T2", 
+		"58502T2", 
+		"66168T2", 
+		"66587T2", 
+		"58572T2"	
+	];
 
 	jQuery("table tr td:nth-child(3)").each(function() {
 		var LP = jQuery(this).text().trim();
@@ -17,7 +33,7 @@ jQuery(document).ready(function() {
 			
 			let feeRaw = fee.replace('$', '');
 			let feePlus = parseFloat(feeRaw) + 1;
-			let feeFormat = '$' + feePlus;
+			let feeFormat = '$' + feePlus.toFixed(2);
 			
 			total+= feePlus;
 			
