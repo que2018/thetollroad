@@ -1,49 +1,56 @@
 
-jQuery(document).ready(function() {
-	var total = 0;
-	
-	var LPS = [
-		"AF53X61", 
-		"AF55D41",
-		"AF54V47", 
-		"AF56B77", 
-		"AF71Y88", 
-		"AF72A22", 
-		"AF72M94", 
-		
-		"58433T2", 
-		"58558T2", 
-		"58544T2", 
-		"58502T2", 
-		"66168T2", 
-		"66587T2", 
-		"58572T2"	
+$(document).ready(function() {	
+	var noAddonList = [
+		'1.74',
+		'2.04',
+		'2.12',
+		'2.49',
+		'2.92',
+		'3.04',
+		'3.11',
+		'3.19',
+		'3.50',
+		'3.59',
+		'3.74',
+		'3.76',
+		'6.62',
+		'6.34'
 	];
 
-	jQuery("table tr td:nth-child(3)").each(function() {
-		var LP = jQuery(this).text().trim();
+	let lpsStrFix = lpsStr + "";
+	let lps = lpsStrFix.split(",");
 
-		if(!LPS.includes(LP)) {
-			//jQuery(this).css("background-color", "yellow");
-		
-			jQuery(this).closest('tr').remove();
+	var total = 0;
+	
+	jQuery("table tr td:nth-child(3)").each(function() {
+		var lp = $(this).text().trim();
+
+		if(!lps.includes(lp)) {		
+			$(this).closest('tr').remove();
 			
 		} else {
-			let fee = jQuery(this).closest('tr').find('td').eq(5).html();
+			let fee = $(this).closest('tr').find('td').eq(5).html();
+			let feeStr = fee.replace('$', '').trim();
 			
-			let feeRaw = fee.replace('$', '');
-			let feePlus = parseFloat(feeRaw) + 1;
-			let feeFormat = '$' + feePlus.toFixed(2);
+			let feeFloat = 0.0;
 			
-			total+= feePlus;
+			if(!noAddonList.includes(feeStr)) {	
+				feeFloat = parseFloat(feeStr) + 1;
+			} else {
+				feeFloat = parseFloat(feeStr) ;
+			}
 			
-			jQuery(this).closest('tr').find('td').eq(5).html(feeFormat);
+			total += feeFloat;
+
+			let feeFormat = '$' + feeFloat.toFixed(2);
+			
+			$(this).closest('tr').find('td').eq(5).html(feeFormat);
 		}		
 	}); 
 	
 	total = total.toFixed(2);
 	
-	let totalRow = "<tr><td colspan='6' style='font-size: 18px; font-weight: bold; text-align: right; padding-right: 20px;'>$" + total + "</td></tr>"
+	let totalRow = "<tr><td colspan='6' style='font-size: 18px; font-weight: bold; text-align: right; padding-right: 20px;'>$" + total + "</td></tr>";
 
-	jQuery("table tbody").append(totalRow);
+	$("table tbody").append(totalRow);
 });
