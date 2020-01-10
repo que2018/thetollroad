@@ -1,5 +1,7 @@
 
 jQuery(document).ready(function() {
+	refreshDeleteBundles();
+	
 	//add row
 	$("#btn-add").click(function(){
 		html  = '<tr>';

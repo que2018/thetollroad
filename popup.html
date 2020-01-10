@@ -10,12 +10,23 @@
     <div class="container-fluid">
 	  <div class="table-responsive">
         <table id="discount" class="table table-striped table-bordered table-hover">
-		  <tbody></tbody>
+		  <tbody>
+		    <tr>
+			  <td class="text-left">
+			    <div class="input-group">
+			      <input type="text" class="form-control lp">
+				  <div class="input-group-append">
+				    <button class="btn btn-danger btn-remove" type="button">remove</button>
+			      </div>
+			    </div>
+			  </td>
+			</tr>
+		  </tbody>
 		  <tfoot>
 			<tr>
 			  <td>
+			  	<button type="button" class="btn btn-warning" id="btn-add">add plate</button>
 			    <button type="button" class="btn btn-primary" id="btn-filter">filter</button>
-				<button type="button" class="btn btn-warning" id="btn-add">add plate</button>
 			  </td>
 			</tr>
 		  </tfoot>
