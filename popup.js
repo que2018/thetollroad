@@ -2,6 +2,17 @@
 jQuery(document).ready(function() {
 	refreshDeleteBundles();
 	
+	//toggle button
+	$("#btn-toggle").click(function(){
+		if($("#single").is(":visible")) {
+			$("#single").hide();
+			$("#multi").show();
+		} else {
+			$("#single").show();
+			$("#multi").hide();
+		}
+	});
+	
 	//add row
 	$("#btn-add").click(function(){
 		html  = '<tr>';
@@ -62,7 +73,7 @@ jQuery(document).ready(function() {
 		
 		let lpsStr = JSON.stringify(lps);
 		
-		console.log(lpsStr);
+		//console.log(lpsStr);
 						
 		var port = chrome.extension.connect({
 		  name: "Sample Communication"
@@ -73,6 +84,32 @@ jQuery(document).ready(function() {
 		port.onMessage.addListener(function(msg) {
 			console.log("message recieved from backend: " + msg);
 		});
+	});
+	
+	//multi filter
+	$("#btn-multi-filter").click(function(){
+		let platesStr = $('textarea').val();
+		
+		let lpsRaw = platesStr.split(",");
+		
+		if(Array.isArray(lpsRaw)) {
+			var lps = [];
+			
+			$.each(lpsRaw, function(index, value) {
+				let lp = value.trim();
+				lps.push(lp);    
+			});
+			
+			let lpsStr = JSON.stringify(lps);
+		
+			console.log(lpsStr);
+						
+			let port = chrome.extension.connect({
+			  name: "Sample Communication"
+			});
+		 
+			port.postMessage(lpsStr);
+		} 
 	});
 });
 

@@ -3,11 +3,13 @@
 <head>
 <script src="jquery.js"></script>
 <link href="./bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="./fontawesome/css/all.css" rel="stylesheet" type="text/css">
 <link href="./popup.css" rel="stylesheet" type="text/css">
 </head>
 <body>
   <div class="wrap">
-    <div class="container-fluid">
+    <div class="toggle-wrap"><i class="fas fa-random" id="btn-toggle"></i></div>
+    <div class="container-fluid" id="single" style="display:none">
 	  <div class="table-responsive">
         <table id="discount" class="table table-striped table-bordered table-hover">
 		  <tbody>
@@ -31,6 +33,12 @@
 			</tr>
 		  </tfoot>
 		</table>
+	  </div>
+    </div>
+	<div class="container-fluid" id="multi" style="display:block">
+	  <div class="multi-wrap">
+        <div><textarea class="form-control" rows="6" cols="50"></textarea></div>
+	    <div class="btn-multi-wrap"><button type="button" class="btn btn-primary" id="btn-multi-filter">filter</button></div>
 	  </div>
     </div>
   </div>

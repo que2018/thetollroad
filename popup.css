@@ -21,3 +21,25 @@ body {
 	margin-top: 20px;
 	font-weight: bold;
 }
+.toggle-wrap {
+	width: 100%;
+    height: 25px;
+    position: relative;
+}
+.toggle-wrap .fas {
+	width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 10px;
+    color: #b3adad;
+	cursor: pointer;
+}
+.btn-multi-wrap {
+	padding: 12px 0px;
+}
+#btn-multi-filter {
+	width: 100%;
+	font-weight: bold;
+}
+
+
