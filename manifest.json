@@ -1,6 +1,6 @@
 {
 	"manifest_version": 2,
-	"version": "1.6.0",
+	"version": "1.6.6",
 	"name": "PiggyCars ThetollRoad Tool",
 	"short_name": "PTT",
 	"description": "thetollroads data collection tool designed by PIGGYCARS HOLDING CO.",
@@ -11,7 +11,7 @@
 	},
 	"content_scripts": [
 		{
-		  "matches": ["<all_urls>"],
+		  "matches": ["https://secure.thetollroads.com/*"],
 		  "js": ["jquery.js"]
 		}
 	],
@@ -19,7 +19,6 @@
 		"persistent": false,
 		"scripts": ["jquery.js", "background.js"]
 	},
-	"permissions": [
-		"https://secure.thetollroads.com/*"
-	]	
+	"permissions": ["https://secure.thetollroads.com/*"]
+	
 }
